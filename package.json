@@ -50,9 +50,9 @@
     "husky": "1.1.1",
     "lint-staged": "7.3.0",
     "rimraf": "2.6.2",
-    "webpack": "4.1.0",
+    "webpack": "^4.41.3",
     "webpack-cli": "3.1.2",
-    "yargs": "8.0.2"
+    "yargs": "^15.0.2"
   },
   "browserslist": [
     "> 1%",

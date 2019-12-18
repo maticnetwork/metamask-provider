@@ -1,6 +1,6 @@
 # metamask-provider
 
-Metamask provider to connect Matic Network
+Metamask provider to connect Matic Network. In future, plan is to use mm-plugin to handle multiple networks.
 
 ### Installation
 
