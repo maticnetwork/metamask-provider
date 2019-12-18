@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <title>Matic metamask provider</title>
+  </head>
+  <body>
+    <div id="meta-mask-required"></div>
+    <fieldset>
+      <button onclick="send()">Donate 1wei to the self on Ethereum</button>
+    </fieldset>
+    <fieldset>
+      <button onclick="send2()">Donate 1wei to the self on Matic</button>
+    </fieldset>
+    <script src="../dist/metamask-provider.js"></script>
+    <script src="https://raw.githubusercontent.com/ethereum/web3.js/v1.2.4/dist/web3.min.js"></script>
+    <script>
+      console.log(Web3)
+      window.currentWeb3 = new Web3(ethereum)
+      window.mainWeb3 = new Web3(
+        new MetamaskProvider(ethereum, {
+          url: "https://ropsten.infura.io/v3/70645f042c3a409599c60f96f6dd9fbc"
+        })
+      )
+      window.maticWeb3 = new Web3(
+        new MetamaskProvider(ethereum, {
+          url: "https://testnet2.matic.network"
+        })
+      )
+      const p = new Promise((resolve, reject) => {
+        currentWeb3.eth.getAccounts(function(err, accounts) {
+          if (err) {
+            reject(err)
+          } else {
+            resolve(accounts)
+          }
+        })
+      })
+
+      function send() {
+        p.then(function(accounts) {
+          console.log(accounts)
+          return mainWeb3.eth.sendTransaction(
+            { to: accounts[0], value: 1 },
+            function(e, result) {
+              console.log(e, result)
+            }
+          )
+        })
+      }
+      function send2() {
+        p.then(function(accounts) {
+          console.log(accounts)
+
+          maticWeb3.eth.getBalance(accounts[0], function(e, r) {
+            console.log("balance ==>", r.toString())
+          })
+
+          return maticWeb3.eth.sendTransaction(
+            { to: accounts[0], value: 1 },
+            function(e, result) {
+              console.log(e, result)
+            }
+          )
+        })
+      }
+    </script>
+  </body>
+</html>

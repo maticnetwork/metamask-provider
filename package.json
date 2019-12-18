@@ -1,0 +1,82 @@
+{
+  "name": "@maticnetwork/metamask-provider",
+  "version": "0.0.1-beta.1",
+  "description": "Metamask provider to connect with Matic Network",
+  "main": "dist/metamask-provider.node.js",
+  "browser": "dist/metamask-provider.umd.js",
+  "react-native": "dist/metamask-provider.node.js",
+  "scripts": {
+    "clean": "rimraf lib dist",
+    "babel:build": "babel src/ --out-dir lib/",
+    "webpack:build": "webpack --env build",
+    "build": "npm run lint && npm run clean && npm run babel:build && npm run webpack:build",
+    "lint": "eslint --ext .js src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maticnetwork/metamask-provider.git"
+  },
+  "keywords": [
+    "metamask",
+    "matic",
+    "ethereum",
+    "web3",
+    "ethers"
+  ],
+  "author": "Matic Network <info@matic.network>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maticnetwork/metamask-provider/issues"
+  },
+  "homepage": "https://github.com/maticnetwork/metamask-provider#readme",
+  "dependencies": {
+    "@babel/polyfill": "7.0.0",
+    "@babel/runtime": "7.1.2",
+    "ethereum-tx-decoder": "^3.0.0",
+    "ethereumjs-common": "^1.5.0",
+    "ethereumjs-util": "^6.2.0",
+    "web3": "^1.2.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.1.2",
+    "@babel/core": "7.1.0",
+    "@babel/plugin-transform-runtime": "7.1.0",
+    "@babel/preset-env": "7.1.0",
+    "@babel/register": "7.0.0",
+    "babel-eslint": "7.2.3",
+    "babel-loader": "8.0.0-beta.0",
+    "eslint": "5.6.0",
+    "eslint-loader": "2.1.1",
+    "husky": "1.1.1",
+    "lint-staged": "7.3.0",
+    "rimraf": "2.6.2",
+    "webpack": "4.1.0",
+    "webpack-cli": "3.1.2",
+    "yargs": "8.0.2"
+  },
+  "browserslist": [
+    "> 1%",
+    "node 8",
+    "not dead"
+  ],
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "linters": {
+      "*.js": [
+        "eslint --fix src test",
+        "git add"
+      ]
+    },
+    "ignore": [
+      "dist",
+      "lib"
+    ]
+  }
+}
