@@ -25,7 +25,7 @@ const ropstenProvider = new MetamaskProvider(window.ethereum, {
 
 // create matic testnet provider
 const maticTestnetProvider = new MetamaskProvider(window.ethereum, {
-  url: "https://testnet.matic.network
+  url: "https://testnet.matic.network"
 })
 ```
 
