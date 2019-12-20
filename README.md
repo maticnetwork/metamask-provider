@@ -29,6 +29,8 @@ const maticTestnetProvider = new MetamaskProvider(window.ethereum, {
 })
 ```
 
+Use these providers to create `Web3` objects to use `web3` apis.
+
 ### License
 
 MIT
