@@ -1,6 +1,6 @@
 {
   "name": "@maticnetwork/metamask-provider",
-  "version": "0.0.1-beta.1",
+  "version": "0.0.1",
   "description": "Metamask provider to connect with Matic Network",
   "main": "dist/metamask-provider.node.js",
   "browser": "dist/metamask-provider.umd.js",
